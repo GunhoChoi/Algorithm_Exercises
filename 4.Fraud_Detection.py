@@ -1,10 +1,8 @@
 import queue
 import copy
-
 string=input()
 n,d=string.split()
 n,d=int(n),int(d)
-
 a=input()
 x=a.split(' ')
 for i in range(len(x)):
@@ -14,8 +12,9 @@ Q=queue.Queue()
 dict1={}
 for i in range(201):
 	dict1[i]=0
-	
+
 total_count=0
+
 def update_QnDict(i):
 	if i==0:
 		for j in range(d):
@@ -43,16 +42,12 @@ def compute_median(dict1):
 			count+=num
 			if count>=(d+1)/2:
 				return i			
-	
-def update_total_count(med1,total_count):
-	if y>=2*med1:
-		total_count+=1
-	return total_count
 
 for i in range(n-d):
 	update_QnDict(i)
 	y=x[i+d]
 	med1=compute_median(dict1)
-	total_count=update_total_count(med1,total_count)
+	if y>=2*med1:
+		total_count+=1
 
 print(total_count)
