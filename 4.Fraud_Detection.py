@@ -1,28 +1,21 @@
 import queue
 import copy
 
-# get n,d
 string=input()
 n,d=string.split()
 n,d=int(n),int(d)
 
-# get expenditures
 a=input()
 x=a.split(' ')
 for i in range(len(x)):
 	x[i]=int(x[i])
 
-# make a queue for reading expenditures 
 Q=queue.Queue()
-
-# make a dict for counting sort & median calculation
 dict1={}
 for i in range(201):
 	dict1[i]=0
-
-# output varible
+	
 total_count=0
-
 def update_QnDict(i):
 	if i==0:
 		for j in range(d):
